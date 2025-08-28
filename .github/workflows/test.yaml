@@ -57,3 +57,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # Токен для авторизации, используется автоматически
           publish_dir: ./allure-history               # Папка с историей отчётов для публикации
           publish_branch: gh-pages                     # Ветка, куда публикуем (gh-pages)
+          force: true
