@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1","Создание текста для авторизованного пользователя","","Thu Aug 28 15:41:22 UTC 2025","passed","Thu Aug 28 15:41:22 UTC 2025","","LabelsTest","LabelsTest","testStaticLabels"
+"","1841","testAnnotatedAttachments()","","Thu Aug 28 15:41:21 UTC 2025","passed","Thu Aug 28 15:41:22 UTC 2025","","AnttachmentsTest","AnttachmentsTest","testAnnotatedAttachments"
+"","3105","testLambdaAttachments()","","Thu Aug 28 15:41:17 UTC 2025","passed","Thu Aug 28 15:41:20 UTC 2025","","AnttachmentsTest","AnttachmentsTest","testLambdaAttachments"
+"","6","testDynamicLabels()","","Thu Aug 28 15:41:22 UTC 2025","passed","Thu Aug 28 15:41:22 UTC 2025","","LabelsTest","LabelsTest","testDynamicLabels"
+"","5884","testLambdaStep()","","Thu Aug 28 15:41:29 UTC 2025","passed","Thu Aug 28 15:41:35 UTC 2025","","StepsTest","StepsTest","testLambdaStep"
+"","5905","testIssueSearch()","","Thu Aug 28 15:41:35 UTC 2025","passed","Thu Aug 28 15:41:41 UTC 2025","","selenideTest","selenideTest","testIssueSearch"
+"","6569","testAnnotatedStep()","","Thu Aug 28 15:41:22 UTC 2025","passed","Thu Aug 28 15:41:29 UTC 2025","","StepsTest","StepsTest","testAnnotatedStep"
