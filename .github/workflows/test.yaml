@@ -1,0 +1,59 @@
+name: Test  # Имя workflow
+
+# Триггер для запуска — вручную через интерфейс GitHub
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Операционная система, где будут запускаться шаги
+
+    steps:
+      # 1. Клонируем текущий репозиторий с ветки по умолчанию (обычно main или master)
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      # 2. Устанавливаем Java 17 с дистрибутивом Zulu
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # 3. Запускаем Selenoid — удалённый WebDriver для браузеров
+      - name: Start Selenoid
+        uses: Xotabu4/selenoid-github-action@v2
+
+      # 4. Запускаем тесты через Gradle
+      #    Используется удалённый драйвер Selenide через Selenoid (по адресу localhost:4444)
+      - name: Run tests
+        run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
+
+
+      # 5. Клонируем ветку gh-pages в отдельную папку
+      #    Ветка нужна для публикации отчётов на GitHub Pages
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        if: always()  # Выполняется даже если предыдущие шаги упали
+        with:
+          ref: gh-pages
+          path: gh-pages
+          persist-credentials: false  # Не сохраняем креды для этой копии
+
+      # 6. Генерируем Allure отчёт и обновляем историю запуска
+      - name: Generate Allure Report
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          gh_pages: gh-pages              # Путь до папки с клоном gh-pages
+          allure_results: build/allure-results   # Путь до allure-results после тестов
+          allure_report: allure-report    # Путь куда генерируем HTML-отчёт
+          allure_history: allure-history  # Путь для истории (history) Allure
+
+      # 7. Публикуем отчёт из allure-history в ветку gh-pages на GitHub Pages
+      - name: Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Токен для авторизации, используется автоматически
+          publish_dir: ./allure-history               # Папка с историей отчётов для публикации
+          publish_branch: gh-pages                     # Ветка, куда публикуем (gh-pages)

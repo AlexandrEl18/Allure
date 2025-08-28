@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id('io.qameta.allure') version '2.12.0'
+}
+
+group = 'AEL'
+version = '1.0-SNAPSHOT'
+
+allure {
+    version.set("2.34.1")
+    adapter {
+        allureJavaVersion.set("2.29.1")
+        aspectjVersion.set("1.9.22.1")
+
+        autoconfigure.set(true)
+        autoconfigureListeners.set(true)
+        aspectjWeaver.set(true)
+
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.29.1") // <--- вот тут была ошибка
+                enabled.set(true)
+                autoconfigureListeners.set(true)
+            }
+        }
+    }
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation("com.codeborne:selenide:7.10.0")
+    implementation("io.qameta.allure:allure-selenide:2.29.1")
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties());
+}
