@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2","testDynamicLabels()","","Mon Oct 20 20:55:43 UTC 2025","passed","Mon Oct 20 20:55:43 UTC 2025","","LabelsTest","LabelsTest","testDynamicLabels"
+"","3347","testLambdaAttachments()","","Mon Oct 20 20:55:38 UTC 2025","passed","Mon Oct 20 20:55:41 UTC 2025","","AnttachmentsTest","AnttachmentsTest","testLambdaAttachments"
+"","10476","testAnnotatedStep()","","Mon Oct 20 20:55:43 UTC 2025","failed","Mon Oct 20 20:55:54 UTC 2025","","StepsTest","StepsTest","testAnnotatedStep"
+"","10130","testLambdaStep()","","Mon Oct 20 20:55:54 UTC 2025","failed","Mon Oct 20 20:56:04 UTC 2025","","StepsTest","StepsTest","testLambdaStep"
+"","9877","testIssueSearch()","","Mon Oct 20 20:56:04 UTC 2025","failed","Mon Oct 20 20:56:14 UTC 2025","","selenideTest","selenideTest","testIssueSearch"
+"","4","Создание текста для авторизованного пользователя","","Mon Oct 20 20:55:43 UTC 2025","passed","Mon Oct 20 20:55:43 UTC 2025","","LabelsTest","LabelsTest","testStaticLabels"
+"","2167","testAnnotatedAttachments()","","Mon Oct 20 20:55:41 UTC 2025","passed","Mon Oct 20 20:55:43 UTC 2025","","AnttachmentsTest","AnttachmentsTest","testAnnotatedAttachments"
